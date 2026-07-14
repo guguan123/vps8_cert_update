@@ -8,11 +8,11 @@
 #include <openssl/x509.h>
 
 #ifndef API_KEY
-#error "Please define API_KEY during compilation! e.g., -DAPI_KEY=\"your_key\""
+#define API_KEY "YOUR_API_KEY"
 #endif
 
 #ifndef DOMAIN
-#error "Please define DOMAIN during compilation! e.g., -DDOMAIN=\"example.com\""
+#define DOMAIN "example.com"
 #endif
 
 #define CERT_PATH_FMT "/etc/ssl/certs/%s-fullchain.pem"

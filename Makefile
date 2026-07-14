@@ -2,9 +2,9 @@
 #  Certificate Updater Automation Makefile
 # ==========================================
 
-# 默认配置（你也可以在编译时通过命令行覆盖它们）
-DOMAIN     ?= example.com
+# 默认配置
 API_KEY    ?= YOUR_API_KEY
+DOMAIN     ?= example.com
 #RELOADCMD  ?= service httpd restart
 
 # 编译参数与目标
@@ -16,10 +16,21 @@ LIBS       = -lcurl -lcrypto
 
 # 注入宏定义
 DEFS       = -DDOMAIN="\"$(DOMAIN)\"" \
-             -DAPI_KEY="\"$(API_KEY)\"" \
-             -DRELOADCMD="\"$(RELOADCMD)\""
+             -DAPI_KEY="\"$(API_KEY)\""
+
+ifneq ($(RELOADCMD),)
+DEFS      += -DRELOADCMD="\"$(RELOADCMD)\""
+endif
 
 .PHONY: all clean install help
+
+ifeq ($(DOMAIN),example.com)
+$(error ❌ Error: DOMAIN is not defined! Use 'make DOMAIN="yourdomain.com"')
+endif
+
+ifeq ($(API_KEY),YOUR_API_KEY)
+$(error ❌ Error: API_KEY is not defined! Use 'make API_KEY="your_key"')
+endif
 
 all: $(TARGET)
 
