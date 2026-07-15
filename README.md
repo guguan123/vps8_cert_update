@@ -36,3 +36,7 @@ sudo make install
 - 脚本路径: /etc/periodic/weekly/cert_updater
 
 - 逻辑: 如果文件不存在或距离过期少于 10 天，就会自动下载新证书并执行重启命令。
+
+## 私钥怎么办？
+
+自己下，这玩意又不需要定期更新
