@@ -12,13 +12,13 @@
 使用 `make` 传入你的配置（别忘了把命令换成你实际的重启命令，如 `nginx -s reload`）：
 
 ```shell
-make DOMAIN="你的域名.com" API_KEY="你的API密钥" RELOADCMD="nginx -s reload"
+make DOMAIN="你的域名" API_KEY="你的API密钥" RELOADCMD="nginx -s reload"
 ```
 
 ### 2. 测试运行
 
 ```shell
-./cert_updater
+./vps8_cert_updater
 ```
 
 ### 3. 丢进定时任务
